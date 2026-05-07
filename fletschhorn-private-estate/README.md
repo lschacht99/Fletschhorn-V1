@@ -39,7 +39,7 @@ Each proxy reads secrets from environment variables, restricts CORS to `ALLOWED_
 - Fallback facts/images: `src/data/fallback-property.json`.
 - Image treatment: CSS variables such as `--fh-hero-image`, with clay-white/mineral overlays and desaturated filters.
 - Booking links/email: `src/js/fletschhorn-config.js`, `.env.example`, and Squarespace header injection.
-- Translations: add translated strings for English, French, German and Russian to `src/data/page-content.json` and wire them through `src/js/fletschhorn-i18n.js`.
+- Translations: live English, French, German and Russian strings are managed in `src/data/languages.json`, mirrored in `src/data/page-content.json`, and applied by `src/js/fletschhorn-i18n.js` using `data-i18n` and `data-i18n-placeholder`.
 
 ## Header, hamburger menu and footer
 
@@ -47,4 +47,4 @@ Reusable source partials live in `src/partials/`. The Squarespace header/footer 
 
 ## Design principles
 
-The CSS enforces a sharp, architectural mineral-grey and clay-white luxury system: no rounded corners, no pill buttons, controlled 72–82vh desktop heroes, thin lines, rectangular image panels, editorial typography, atmospheric overlays, scroll reveals, floating fact cards and reduced-motion support.
+The CSS enforces a sharp, architectural mineral-grey and clay-white luxury system: no rounded corners, no pill buttons, controlled 72–82vh desktop heroes, page-specific visual moods, mobile inquiry panels, thin lines, rectangular image panels, editorial typography, atmospheric overlays, scroll reveals, floating fact cards and reduced-motion support.
