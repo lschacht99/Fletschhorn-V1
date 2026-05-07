@@ -1,0 +1,18 @@
+{
+  "name": "fletschhorn-private-estate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Luxury Squarespace-ready private alpine estate website for Waldhotel Fletschhorn.",
+  "scripts": {
+    "preview": "python3 -m http.server 4173 --directory preview",
+    "build": "node -e \"const fs=require('fs'); fs.mkdirSync('dist',{recursive:true}); fs.cpSync('preview','dist/preview',{recursive:true}); console.log('Built preview assets to dist/preview');\"",
+    "lint": "node -e \"const fs=require('fs'); const req=['preview/index.html','squarespace/custom-css.css','src/js/fletschhorn-ui.js']; req.forEach(f=>{if(!fs.existsSync(f)) throw new Error('Missing '+f)}); console.log('Repository structure lint passed');\""
+  },
+  "keywords": [
+    "squarespace",
+    "luxury-estate",
+    "switzerland",
+    "private-rental"
+  ],
+  "devDependencies": {}
+}

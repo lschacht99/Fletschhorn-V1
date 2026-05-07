@@ -1,0 +1,237 @@
+<!-- Fletschhorn global footer injection -->
+<footer class="fh-footer">
+  <div class="fh-footer-grid"><div><div class="fh-brand">Waldhotel Fletschhorn<small>Private Estate</small></div><p data-i18n="footer.description">Exclusive whole-property rental in the Saas-Fee / Saas-Balen region for private stays, weddings, retreats and meaningful gatherings.</p><a class="fh-cta" href="/contact-booking" data-fh-route="contact-booking" data-i18n="nav.cta">Request Availability</a></div><nav aria-label="Footer navigation"><a href="/" data-fh-route="home" data-i18n="nav.home">Home</a><a href="/about" data-fh-route="about" data-i18n="nav.about">About</a><a href="/property" data-fh-route="property" data-i18n="nav.property">The Property</a><a href="/experiences" data-fh-route="experiences" data-i18n="nav.experiences">Experiences</a><a href="/location" data-fh-route="location" data-i18n="nav.location">Location</a><a href="/contact-booking" data-fh-route="contact-booking" data-i18n="nav.booking">Contact & Booking</a><a href="/weddings-events" data-fh-route="weddings-events" data-i18n="nav.weddings">Weddings & Events</a></nav><div><p class="fh-eyebrow" data-i18n="footer.language">Language</p><div class="fh-lang"><span>EN</span><span>FR</span><span>DE</span><span>RU</span></div><p><a href="#" data-i18n="footer.privacy">Privacy</a> · <a href="#" data-i18n="footer.legal">Legal</a></p></div></div>
+  <div class="fh-credit">Designed by moshe.cohen.h1@gmail.com</div>
+</footer>
+<div class="fh-mobile-sticky-cta" data-fh-mobile-sticky-cta><div><strong data-i18n="common.privateEstateRental">Private estate rental</strong><span data-i18n="common.upTo67">Up to 67 guests</span></div><a class="fh-cta" href="/contact-booking" data-fh-route="contact-booking" data-i18n="common.inquire">Inquire</a></div>
+<script>(function(){
+  const fallback = window.FH_FALLBACK_PROPERTY || null;
+  async function getProperty(){
+    const cfg = window.FH_CONFIG || {};
+    if(!cfg.useApi || !cfg.apiEndpoint) return fallback;
+    try{
+      const res = await fetch(cfg.apiEndpoint,{headers:{Accept:'application/json'}});
+      if(!res.ok) throw new Error('API unavailable');
+      return await res.json();
+    }catch(error){
+      console.warn('Fletschhorn API fallback active:', error.message);
+      return fallback;
+    }
+  }
+  function applyProperty(data){
+    if(!data) return;
+    window.FH_CURRENT_PROPERTY = data;
+    document.documentElement.style.setProperty('--fh-max-guests', JSON.stringify(data.maxGuests));
+    (data.images||[]).forEach(img=>{ if(img.url) document.documentElement.style.setProperty(`--fh-${img.category}-image`, `url("${img.url}")`); });
+    document.querySelectorAll('[data-fh-property-name]').forEach(el=>el.textContent=data.propertyName);
+    document.querySelectorAll('[data-fh-inquiry-email]').forEach(el=>{el.textContent=data.inquiryEmail; el.href='mailto:'+data.inquiryEmail;});
+    if(window.FHPopups && typeof window.FHPopups.applyPopImages === 'function') window.FHPopups.applyPopImages(data);
+  }
+  window.FHApi = { getProperty, applyProperty };
+})();
+
+(function(){
+  let closeMenuRef = null;
+  function initMobileMenu(){
+    const openBtn=document.querySelector('[data-fh-menu-open]');
+    const closeBtn=document.querySelector('[data-fh-menu-close]');
+    const menu=document.querySelector('[data-fh-mobile-menu]');
+    const backdrop=document.querySelector('[data-fh-menu-backdrop]');
+    if(!openBtn||!menu) return;
+    const focusable='a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])';
+    let previousFocus=null;
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function setOpen(open){
+      menu.classList.toggle('is-open',open); backdrop&&backdrop.classList.toggle('is-open',open);
+      menu.setAttribute('aria-hidden',String(!open)); openBtn.setAttribute('aria-expanded',String(open));
+      document.body.style.overflow=open?'hidden':'';
+      if(open){ previousFocus=document.activeElement; const first=menu.querySelector(focusable); first&&first.focus({preventScroll:reduced}); }
+      else if(previousFocus){ previousFocus.focus({preventScroll:reduced}); }
+    }
+    closeMenuRef = () => setOpen(false);
+    openBtn.addEventListener('click',()=>setOpen(true));
+    closeBtn&&closeBtn.addEventListener('click',()=>setOpen(false));
+    backdrop&&backdrop.addEventListener('click',()=>setOpen(false));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&menu.classList.contains('is-open')) setOpen(false);
+      if(e.key==='Tab'&&menu.classList.contains('is-open')){
+        const nodes=[...menu.querySelectorAll(focusable)].filter(n=>!n.disabled);
+        if(!nodes.length) return; const first=nodes[0], last=nodes[nodes.length-1];
+        if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    menu.addEventListener('click',e=>{ if(e.target.closest('a')) setOpen(false); });
+  }
+  function initReveal(){
+    const els=document.querySelectorAll('.fh-scroll-reveal,.fh-sharp-card,.fh-image-panel,.fh-story-chapter,.fh-arrival-steps > div,.fh-wedding-card');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(el=>el.classList.add('is-visible'));return;}
+    const io=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-visible');io.unobserve(en.target);}}),{threshold:.12});
+    els.forEach(el=>{el.classList.add('fh-scroll-reveal');io.observe(el);});
+  }
+  function initForms(){
+    document.addEventListener('submit',e=>{
+      if(e.target.matches('[data-fh-inquiry-form]')){ e.preventDefault(); location.hash='contact-booking'; }
+      if(e.target.matches('[data-fh-contact-form]')){ e.preventDefault(); const msg=(window.FH_TRANSLATIONS?.[localStorage.getItem('fh_language')||'en']?.['booking.confirmation']) || 'Thank you. Your inquiry is ready to connect.'; alert(msg); }
+    });
+  }
+  function activateTabs(root, tabSelector, panelSelector, attr){
+    const tabs=[...root.querySelectorAll(tabSelector)], panels=[...root.querySelectorAll(panelSelector)];
+    function show(id){
+      tabs.forEach((t,i)=>{ const active=(t.getAttribute(attr)===id)||(!id&&i===0); t.toggleAttribute('aria-selected',active); t.tabIndex=active?0:-1; });
+      panels.forEach((p,i)=>p.classList.toggle('is-active',(p.getAttribute(attr.replace('-tab','-panel'))===id)||(!id&&i===0)));
+      if(window.FHPopups && typeof window.FHPopups.syncPopTab === 'function') window.FHPopups.syncPopTab(root, id);
+    }
+    tabs.forEach(t=>{ t.addEventListener('click',()=>show(t.getAttribute(attr))); t.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); const i=tabs.indexOf(t), n=e.key==='ArrowRight' ? (i+1)%tabs.length : (i-1+tabs.length)%tabs.length; tabs[n].focus(); tabs[n].click(); } }); });
+    show(tabs[0]&&tabs[0].getAttribute(attr));
+  }
+  function initEstateExplorer(){ document.querySelectorAll('[data-fh-estate-explorer]').forEach(root=>activateTabs(root,'[data-fh-estate-tab]','[data-fh-estate-panel]','data-fh-estate-tab')); }
+  function initExperienceToggle(){ document.querySelectorAll('[data-fh-experience-toggle]').forEach(root=>activateTabs(root,'[data-fh-experience-tab]','[data-fh-experience-panel]','data-fh-experience-tab')); }
+  function initStoryDisclosures(){ document.querySelectorAll('[data-fh-disclosure]').forEach((root,index)=>{ const btn=root.querySelector('[data-fh-disclosure-toggle]'), panel=root.querySelector('[data-fh-disclosure-panel]'); if(!btn||!panel) return; const id='fh-story-'+index; panel.id=id; btn.setAttribute('aria-controls',id); function set(open){ root.classList.toggle('is-open',open); btn.setAttribute('aria-expanded',String(open)); } btn.addEventListener('click',()=>set(!root.classList.contains('is-open'))); set(index===0); }); }
+  function initStickyMobileCta(){ const bar=document.querySelector('[data-fh-mobile-sticky-cta]'); if(!bar) return; function update(){ const footer=document.querySelector('.fh-footer'); const footerTop=footer?footer.getBoundingClientRect().top:Infinity; bar.classList.toggle('is-visible', window.scrollY>220 && footerTop>window.innerHeight+40); } window.addEventListener('scroll',update,{passive:true}); window.addEventListener('fh:page-change',update); update(); }
+  window.FHUi={initMobileMenu,closeMobileMenu:()=>closeMenuRef&&closeMenuRef(),initReveal,initForms,initEstateExplorer,initExperienceToggle,initStoryDisclosures,initStickyMobileCta};
+})();
+
+(function(){
+  const supportedLanguages = ['en', 'fr', 'de', 'ru'];
+  const fallbackLanguage = 'en';
+  const translations = window.FH_TRANSLATIONS || {};
+
+  function getValue(language, key){
+    return translations?.[language]?.[key] || translations?.[fallbackLanguage]?.[key] || '';
+  }
+
+  function getInitialLanguage(){
+    const stored = localStorage.getItem('fh_language');
+    if(supportedLanguages.includes(stored)) return stored;
+    return fallbackLanguage;
+  }
+
+  function applyTranslations(language){
+    document.documentElement.lang = language;
+    document.querySelectorAll('[data-i18n]').forEach(node => {
+      const value = getValue(language, node.getAttribute('data-i18n'));
+      if(value) node.textContent = value;
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(node => {
+      const value = getValue(language, node.getAttribute('data-i18n-placeholder'));
+      if(value) node.setAttribute('placeholder', value);
+    });
+    document.querySelectorAll('[data-fh-lang]').forEach(btn => {
+      const active = btn.dataset.fhLang === language;
+      btn.toggleAttribute('aria-current', active);
+      btn.setAttribute('aria-pressed', String(active));
+      btn.setAttribute('type', 'button');
+    });
+  }
+
+  function setLanguage(code){
+    const language = supportedLanguages.includes(code) ? code : fallbackLanguage;
+    localStorage.setItem('fh_language', language);
+    applyTranslations(language);
+    return language;
+  }
+
+  function initI18n(){
+    document.addEventListener('click', event => {
+      const button = event.target.closest('[data-fh-lang]');
+      if(!button) return;
+      event.preventDefault();
+      setLanguage(button.dataset.fhLang);
+      const menu = button.closest('[data-fh-mobile-menu]');
+      if(menu && window.FHUi && typeof window.FHUi.closeMobileMenu === 'function') window.FHUi.closeMobileMenu();
+    });
+    applyTranslations(getInitialLanguage());
+  }
+
+  window.FHI18n = { initI18n, setLanguage, refresh: () => applyTranslations(getInitialLanguage()), supportedLanguages, fallbackLanguage };
+})();
+
+(function(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobileQuery = window.matchMedia('(max-width: 767px)');
+  let mouseBound = false;
+
+  function imageMap(data){
+    const map = {};
+    ((data && data.images) || (window.FH_FALLBACK_PROPERTY && window.FH_FALLBACK_PROPERTY.images) || []).forEach(img => {
+      if(img && img.category) map[img.category] = img;
+    });
+    return map;
+  }
+
+  function applyPopImages(data){
+    const map = imageMap(data);
+    document.querySelectorAll('[data-fh-image]').forEach(img => {
+      const category = img.getAttribute('data-fh-image');
+      const item = map[category];
+      if(item && item.url){
+        img.src = item.url;
+        img.alt = item.alt || '';
+        img.removeAttribute('data-fh-empty');
+      } else {
+        img.removeAttribute('src');
+        img.alt = '';
+        img.setAttribute('data-fh-empty','true');
+      }
+    });
+  }
+
+  function revealLayer(layer){
+    layer.querySelectorAll('.fh-pop-image').forEach((item,index) => {
+      const delay = reduceMotion ? 0 : index * 130;
+      window.setTimeout(() => item.classList.add('is-visible'), delay);
+    });
+  }
+
+  function initPopImages(){
+    const layers = document.querySelectorAll('.fh-pop-image-layer');
+    if(!layers.length) return;
+    applyPopImages(window.FH_CURRENT_PROPERTY || window.FH_FALLBACK_PROPERTY);
+    if('IntersectionObserver' in window){
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting) return;
+          revealLayer(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.18 });
+      layers.forEach(layer => observer.observe(layer));
+    } else {
+      layers.forEach(revealLayer);
+    }
+    if(!reduceMotion && !mobileQuery.matches && !mouseBound){
+      window.addEventListener('mousemove', handlePopImageMouseMove, { passive:true });
+      window.addEventListener('scroll', handlePopImageScroll, { passive:true });
+      mouseBound = true;
+    }
+  }
+
+  function handlePopImageMouseMove(event){
+    const x = (event.clientX / window.innerWidth - .5) * 10;
+    const y = (event.clientY / window.innerHeight - .5) * 10;
+    document.querySelectorAll('.fh-pop-image.is-visible').forEach((item,index) => {
+      const depth = (index + 1) * .18;
+      item.style.setProperty('--cursor-x', `${x * depth}px`);
+      item.style.setProperty('--cursor-y', `${y * depth}px`);
+    });
+  }
+
+  function handlePopImageScroll(){
+    const y = Math.min(18, window.scrollY * .018);
+    document.documentElement.style.setProperty('--pop-scroll-y', `${y}px`);
+  }
+
+  function syncPopTab(root, id){
+    const page = root.closest('[data-fh-page]') || document;
+    page.querySelectorAll('.fh-pop-image[data-pop-tab]').forEach(item => {
+      item.classList.toggle('is-tab-active', item.getAttribute('data-pop-tab') === id);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initPopImages);
+  window.FHPopups = { initPopImages, applyPopImages, syncPopTab };
+  window.FH_initPopImages = initPopImages;
+})();
+
+(function(){document.addEventListener('DOMContentLoaded',async()=>{FHUi.initMobileMenu();FHUi.initForms();FHUi.initReveal();FHUi.initEstateExplorer();FHUi.initExperienceToggle();FHUi.initStoryDisclosures();FHUi.initStickyMobileCta();if(window.FHPopups) FHPopups.initPopImages();const data=await FHApi.getProperty();FHApi.applyProperty(data);if(window.FHPopups) FHPopups.initPopImages();FHI18n.initI18n();});})();</script>

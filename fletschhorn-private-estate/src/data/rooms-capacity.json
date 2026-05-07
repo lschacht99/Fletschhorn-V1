@@ -1,0 +1,9 @@
+{
+  "roomsSuites": 14,
+  "maxGuestsByArrangement": 67,
+  "rentalModel": "whole-property booking only",
+  "notes": [
+    "Capacity depends on event format, staffing, local rules, and final estate configuration.",
+    "Do not present inventory as individual room booking."
+  ]
+}
