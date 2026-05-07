@@ -1,6 +1,6 @@
 <!-- Fletschhorn global footer injection -->
 <footer class="fh-footer">
-  <div class="fh-footer-grid"><div><div class="fh-brand">Waldhotel Fletschhorn<small>Private Estate</small></div><p>Exclusive whole-property rental in the Saas-Fee / Saas-Balen region for private stays, weddings, retreats and meaningful gatherings.</p><a class="fh-cta" href="/contact-booking" data-fh-route="contact-booking">Request Availability</a></div><nav aria-label="Footer navigation"><a href="/" data-fh-route="home">Home</a><a href="/about" data-fh-route="about">About</a><a href="/property" data-fh-route="property">The Property</a><a href="/experiences" data-fh-route="experiences">Experiences</a><a href="/location" data-fh-route="location">Location</a><a href="/contact-booking" data-fh-route="contact-booking">Contact & Booking</a><a href="/weddings-events" data-fh-route="weddings-events">Weddings & Events</a></nav><div><p class="fh-eyebrow">Language</p><div class="fh-lang"><span>EN</span><span>FR</span><span>DE</span></div><p><a href="#">Privacy</a> · <a href="#">Legal</a></p></div></div>
+  <div class="fh-footer-grid"><div><div class="fh-brand">Waldhotel Fletschhorn<small>Private Estate</small></div><p>Exclusive whole-property rental in the Saas-Fee / Saas-Balen region for private stays, weddings, retreats and meaningful gatherings.</p><a class="fh-cta" href="/contact-booking" data-fh-route="contact-booking">Request Availability</a></div><nav aria-label="Footer navigation"><a href="/" data-fh-route="home">Home</a><a href="/about" data-fh-route="about">About</a><a href="/property" data-fh-route="property">The Property</a><a href="/experiences" data-fh-route="experiences">Experiences</a><a href="/location" data-fh-route="location">Location</a><a href="/contact-booking" data-fh-route="contact-booking">Contact & Booking</a><a href="/weddings-events" data-fh-route="weddings-events">Weddings & Events</a></nav><div><p class="fh-eyebrow">Language</p><div class="fh-lang"><span>EN</span><span>FR</span><span>DE</span><span>RU</span></div><p><a href="#">Privacy</a> · <a href="#">Legal</a></p></div></div>
   <div class="fh-credit">Designed by moshe.cohen.h1@gmail.com</div>
 </footer>
 <script>(function(){
@@ -69,10 +69,40 @@
   window.FHUi={initMobileMenu,initReveal,initForms};
 })();
 (function(){
-  const state={language:localStorage.getItem('fh_language')||'en'};
-  function setLanguage(code){ state.language=code; localStorage.setItem('fh_language',code); document.documentElement.lang=code; document.querySelectorAll('[data-fh-current-lang]').forEach(el=>el.textContent=code.toUpperCase()); }
-  function initI18n(){ document.querySelectorAll('[data-fh-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.fhLang))); setLanguage(state.language); }
-  window.FHI18n={initI18n,setLanguage};
+  const supportedLanguages = ['en', 'fr', 'de', 'ru'];
+  const fallbackLanguage = 'en';
+  const translations = window.FH_TRANSLATIONS || {};
+  const storedLanguage = localStorage.getItem('fh_language');
+  const browserLanguage = (navigator.language || fallbackLanguage).slice(0, 2).toLowerCase();
+  const state = {
+    language: supportedLanguages.includes(storedLanguage) ? storedLanguage : (supportedLanguages.includes(browserLanguage) ? browserLanguage : fallbackLanguage)
+  };
+
+  function translateNode(node, language){
+    const key = node.getAttribute('data-i18n');
+    const value = translations?.[language]?.[key] || translations?.[fallbackLanguage]?.[key];
+    if(value) node.textContent = value;
+  }
+
+  function setLanguage(code){
+    const nextLanguage = supportedLanguages.includes(code) ? code : fallbackLanguage;
+    state.language = nextLanguage;
+    localStorage.setItem('fh_language', nextLanguage);
+    document.documentElement.lang = nextLanguage;
+    document.querySelectorAll('[data-fh-current-lang]').forEach(el => { el.textContent = nextLanguage.toUpperCase(); });
+    document.querySelectorAll('[data-fh-lang]').forEach(btn => { btn.toggleAttribute('aria-current', btn.dataset.fhLang === nextLanguage); });
+    document.querySelectorAll('[data-i18n]').forEach(node => translateNode(node, nextLanguage));
+  }
+
+  function initI18n(){
+    document.querySelectorAll('[data-fh-lang]').forEach(btn => {
+      btn.setAttribute('type', 'button');
+      btn.addEventListener('click', () => setLanguage(btn.dataset.fhLang));
+    });
+    setLanguage(state.language);
+  }
+
+  window.FHI18n = { initI18n, setLanguage, supportedLanguages, fallbackLanguage };
 })();
 
 (function(){document.addEventListener('DOMContentLoaded',async()=>{FHUi.initMobileMenu();FHUi.initForms();FHUi.initReveal();const data=await FHApi.getProperty();FHApi.applyProperty(data);FHI18n.initI18n();});})();</script>

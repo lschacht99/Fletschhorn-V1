@@ -3,16 +3,40 @@
   "available": [
     {
       "code": "en",
-      "label": "English"
+      "label": "English",
+      "shortLabel": "EN",
+      "contentStatus": "source"
     },
     {
       "code": "fr",
-      "label": "Fran\u00e7ais"
+      "label": "Français",
+      "shortLabel": "FR",
+      "contentStatus": "ready_for_translation"
     },
     {
       "code": "de",
-      "label": "Deutsch"
+      "label": "Deutsch",
+      "shortLabel": "DE",
+      "contentStatus": "ready_for_translation"
+    },
+    {
+      "code": "ru",
+      "label": "Русский",
+      "shortLabel": "RU",
+      "contentStatus": "ready_for_translation"
     }
   ],
-  "strategy": "Keep HTML keys stable and add translations by page in page-content.json."
+  "strategy": "Keep data-i18n keys stable, add translated strings by language and page in page-content.json, and validate EN/FR/DE/RU before launch.",
+  "fallbackLanguage": "en",
+  "contentNamespaces": [
+    "navigation",
+    "footer",
+    "home",
+    "about",
+    "property",
+    "experiences",
+    "location",
+    "contact-booking",
+    "weddings-events"
+  ]
 }
