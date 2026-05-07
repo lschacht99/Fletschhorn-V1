@@ -1,0 +1,37 @@
+{
+  "home": {
+    "title": "Home",
+    "hero": "Private Alpine Estate for Exclusive Stays, Weddings & Gatherings",
+    "intro": "This is not a hotel. This is a private alpine estate reserved in full for exclusive stays, weddings, retreats, and meaningful gatherings."
+  },
+  "about": {
+    "title": "About",
+    "hero": "A Private Alpine Address, Held Entirely for You",
+    "intro": "Fletschhorn is repositioned as a full estate experience: privacy, mountain atmosphere, and alpine hospitality for groups who want the property to themselves."
+  },
+  "property": {
+    "title": "The Property",
+    "hero": "The Full Estate: 14 Rooms & Suites, Spa, Dining and Gathering Spaces",
+    "intro": "A whole-property rental with 14 rooms and suites, private lounges, wellness spaces, dining room, professional kitchen possibilities, and capacity for up to 67 guests by arrangement."
+  },
+  "experiences": {
+    "title": "Experiences",
+    "hero": "Slow Alpine Days and Hosted Mountain Experiences",
+    "intro": "Skiing, hiking, wellness, local villages, seasonal rituals, retreat programming, celebration weekends, and private group experiences in the Saas valley."
+  },
+  "location": {
+    "title": "Location",
+    "hero": "Saas-Fee / Saas-Balen: A Private Swiss Alpine Setting",
+    "intro": "A practical luxury location page covering arrival by car, train, transfers, nearby villages, mountain experiences, and a map placeholder."
+  },
+  "contact-booking": {
+    "title": "Contact & Booking",
+    "hero": "Request Availability for the Full Estate",
+    "intro": "An inquiry-first flow: share dates, guests and occasion; the team confirms availability and pricing; then finalize the exclusive estate booking."
+  },
+  "weddings-events": {
+    "title": "Weddings & Events",
+    "hero": "A Private Swiss Estate for Wedding Weekends, Retreats and Celebrations",
+    "intro": "Multi-day wedding weekends, private celebrations, corporate and wellness retreats, family gatherings, dining moments, and full-property event hospitality."
+  }
+}
