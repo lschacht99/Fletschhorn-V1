@@ -1,0 +1,10 @@
+name = "fletschhorn-property"
+main = "worker.js"
+compatibility_date = "2026-05-07"
+
+[vars]
+DATA_SOURCE = "guesty"
+ALLOWED_ORIGIN = "https://www.example-squarespace-domain.com"
+BOOKING_URL = ""
+INQUIRY_EMAIL = ""
+# Store secrets with: wrangler secret put GUESTY_CLIENT_ID, GUESTY_CLIENT_SECRET, GETTY_API_KEY

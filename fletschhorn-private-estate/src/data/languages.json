@@ -1,0 +1,18 @@
+{
+  "default": "en",
+  "available": [
+    {
+      "code": "en",
+      "label": "English"
+    },
+    {
+      "code": "fr",
+      "label": "Fran\u00e7ais"
+    },
+    {
+      "code": "de",
+      "label": "Deutsch"
+    }
+  ],
+  "strategy": "Keep HTML keys stable and add translations by page in page-content.json."
+}
