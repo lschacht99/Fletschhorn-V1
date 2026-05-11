@@ -1,156 +1,142 @@
 {
   "home": {
-    "seoTitle": "Home | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "This is not a hotel. This is a private alpine estate reserved in full for exclusive stays, weddings, retreats, and meaningful gatherings.",
-    "h1": "Private Alpine Estate for Exclusive Stays, Weddings & Gatherings",
+    "seoTitle": "Private Alpine Chalet in Saas-Fee | Waldhotel Fletschhorn",
+    "metaDescription": "Take over a historic mountain property for your group, celebration, retreat or alpine escape. Waldhotel Fletschhorn becomes a private mountain world reserv",
+    "h1": "Your Private Alpine Chalet in Saas-Fee",
     "slug": "/",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
-    ],
     "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
-    ]
-  },
-  "about": {
-    "seoTitle": "About | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "Fletschhorn is repositioned as a full estate experience: privacy, mountain atmosphere, and alpine hospitality for groups who want the property to themselve",
-    "h1": "A Private Alpine Address, Held Entirely for You",
-    "slug": "/about",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
     ],
-    "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
     ]
   },
   "property": {
-    "seoTitle": "The Property | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "A whole-property rental with 14 rooms and suites, private lounges, wellness spaces, dining room, professional kitchen possibilities, and capacity for up to",
-    "h1": "The Full Estate: 14 Rooms & Suites, Spa, Dining and Gathering Spaces",
+    "seoTitle": "The Property | Waldhotel Fletschhorn Private Alpine Estate",
+    "metaDescription": "Waldhotel Fletschhorn is presented as a private alpine house: secluded, cinematic and designed for groups who want to gather, dine, rest and celebrate in o",
+    "h1": "A 100-year-old mountain lodge reimagined for private stays.",
     "slug": "/property",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
-    ],
     "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
+    ],
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
     ]
   },
-  "experiences": {
-    "seoTitle": "Experiences | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "Skiing, hiking, wellness, local villages, seasonal rituals, retreat programming, celebration weekends, and private group experiences in the Saas valley.",
-    "h1": "Slow Alpine Days and Hosted Mountain Experiences",
-    "slug": "/experiences",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
-    ],
+  "suites": {
+    "seoTitle": "Suites & Sleeping | Waldhotel Fletschhorn Saas-Fee",
+    "metaDescription": "Private suites inside your alpine home support group stays, weddings, retreats and private events without turning the experience into a room-booking grid.",
+    "h1": "Stay together, with space to retreat.",
+    "slug": "/suites-sleeping",
     "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
+    ],
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
     ]
   },
-  "location": {
-    "seoTitle": "Location | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "A practical luxury location page covering arrival by car, train, transfers, nearby villages, mountain experiences, and a map placeholder.",
-    "h1": "Saas-Fee / Saas-Balen: A Private Swiss Alpine Setting",
-    "slug": "/location",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
-    ],
-    "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
-    ]
-  },
-  "contact-booking": {
-    "seoTitle": "Contact & Booking | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "An inquiry-first flow: share dates, guests and occasion; the team confirms availability and pricing; then finalize the exclusive estate booking.",
-    "h1": "Request Availability for the Full Estate",
-    "slug": "/contact-booking",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
-    ],
-    "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
-    ]
-  },
-  "weddings-events": {
-    "seoTitle": "Weddings & Events | Fletschhorn Private Estate Switzerland",
-    "metaDescription": "Multi-day wedding weekends, private celebrations, corporate and wellness retreats, family gatherings, dining moments, and full-property event hospitality.",
-    "h1": "A Private Swiss Estate for Wedding Weekends, Retreats and Celebrations",
+  "weddings": {
+    "seoTitle": "Weddings & Private Events | Waldhotel Fletschhorn",
+    "metaDescription": "Host the ceremony, dinner and weekend rhythm in one intimate Swiss mountain venue for weddings, family celebrations and private events.",
+    "h1": "Not a ballroom. A private alpine house for the people closest to you.",
     "slug": "/weddings-events",
-    "imageAltSuggestions": [
-      "Clay-white view of the private alpine estate in the Swiss mountains",
-      "Saas-Fee and Saas-Balen mountain setting around the private estate"
-    ],
     "keywords": [
-      "private estate Switzerland",
-      "exclusive property rental Switzerland",
-      "luxury alpine estate",
-      "Swiss wedding venue",
-      "private chalet rental Switzerland",
-      "luxury retreat venue",
-      "Saas-Fee private estate",
-      "whole property rental Switzerland",
-      "luxury wedding venue Switzerland",
-      "private alpine retreat"
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
+    ],
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
+    ]
+  },
+  "retreats": {
+    "seoTitle": "Retreats & Groups | Private Alpine Base Saas-Fee",
+    "metaDescription": "Work, gather, ski, dine and reset from one private mountain property in Saas-Fee. The house supports corporate groups, wellness retreats, creative teams, s",
+    "h1": "Bring your group to a private alpine base.",
+    "slug": "/retreats-groups",
+    "keywords": [
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
+    ],
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
+    ]
+  },
+  "dining": {
+    "seoTitle": "Dining, Wine & Hospitality | Waldhotel Fletschhorn",
+    "metaDescription": "The strongest Fletschhorn story lives at the table: local suppliers, homemade kitchen elements, Swiss cuisine, mountain views and a legendary cellar.",
+    "h1": "Dining is not an add-on. It is part of the private Fletschhorn experience.",
+    "slug": "/dining-wine-hospitality",
+    "keywords": [
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
+    ],
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
+    ]
+  },
+  "inquiry": {
+    "seoTitle": "Saas-Fee & Private Proposal | Waldhotel Fletschhorn",
+    "metaDescription": "Tell us what you would like to host: a family stay, wedding, celebration, corporate retreat, wellness week, ski group or alpine escape.",
+    "h1": "A private mountain world in Saas-Fee, reserved for your people.",
+    "slug": "/saas-fee-inquiry",
+    "keywords": [
+      "private chalet Saas-Fee",
+      "private alpine estate Switzerland",
+      "Waldhotel Fletschhorn private rental",
+      "Saas-Fee wedding venue",
+      "Swiss retreat venue",
+      "private hotel buyout Switzerland"
+    ],
+    "hreflang": [
+      "en",
+      "fr",
+      "de",
+      "ru"
     ]
   }
 }

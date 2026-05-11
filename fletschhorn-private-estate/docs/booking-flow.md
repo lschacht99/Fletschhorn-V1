@@ -1,3 +1,10 @@
 # Booking flow
 
-The flow is inquiry-first: request availability, share dates/group size/occasion, team confirms availability and pricing, then finalize the exclusive estate booking. The UI avoids book-a-room language and can connect later to Squarespace Forms, Zapier, Google Sheets or a custom API.
+The conversion flow is private-proposal first, not instant payment or room inventory.
+
+1. Visitor understands the property can be reserved as a private mountain world.
+2. Visitor opens Saas-Fee & Inquiry.
+3. Visitor shares dates, group size, type of stay/event and message/vision.
+4. The team responds with availability, configuration and proposal details.
+
+The inquiry form is ready to connect later to Squarespace Forms, Zapier, Google Sheets or a custom endpoint.

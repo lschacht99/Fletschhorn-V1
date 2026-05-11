@@ -1,6 +1,6 @@
 window.FH_CONFIG = window.FH_CONFIG || {
   apiEndpoint: '/api/fletschhorn-property',
-  bookingUrl: '#contact-booking',
+  bookingUrl: '/saas-fee-inquiry',
   inquiryEmail: 'reservations@example.com',
   useApi: false
 };

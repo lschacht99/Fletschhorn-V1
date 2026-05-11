@@ -1,3 +1,5 @@
 # SEO plan
 
-Seven pages target private estate Switzerland, exclusive property rental Switzerland, luxury alpine estate, Swiss wedding venue, private chalet rental Switzerland, luxury retreat venue, Saas-Fee private estate, whole property rental Switzerland, luxury wedding venue Switzerland and private alpine retreat. Metadata lives in src/data/seo.json.
+Primary search direction: private chalet Saas-Fee, private alpine estate Switzerland, Waldhotel Fletschhorn private rental, Saas-Fee wedding venue, Swiss retreat venue and private hotel buyout Switzerland.
+
+SEO metadata lives in `src/data/seo.json` for the seven current pages and includes hreflang support for English, French, German and Russian in the Squarespace header injection and local preview.

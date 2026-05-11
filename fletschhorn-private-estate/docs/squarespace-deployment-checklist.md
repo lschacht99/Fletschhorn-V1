@@ -1,3 +1,10 @@
 # Squarespace deployment checklist
 
-Paste CSS, header injection, footer injection, create seven Squarespace pages, paste matching page code blocks, update FH_CONFIG, deploy one API proxy, set environment variables, test mobile menu, test inquiry placeholders, verify SEO metadata and connect real property imagery.
+1. Paste `squarespace/custom-css.css` into Custom CSS.
+2. Paste `squarespace/global-header-injection.html` into Header Code Injection.
+3. Paste `squarespace/global-footer-injection.html` into Footer Code Injection.
+4. Create seven pages: Home, Property, Suites & Sleeping, Weddings & Events, Retreats & Groups, Dining, Saas-Fee & Inquiry.
+5. Paste the matching page code block from `squarespace/pages/`.
+6. Confirm EN / FR / DE / RU switch all visible text.
+7. Confirm inquiry CTAs route to Saas-Fee & Inquiry.
+8. Replace fallback image URLs and connect the final form destination.

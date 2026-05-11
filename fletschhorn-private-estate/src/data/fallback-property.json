@@ -1,7 +1,7 @@
 {
-  "propertyName": "Fletschhorn Private Estate",
-  "headline": "Private Alpine Estate for Exclusive Stays, Weddings & Gatherings",
-  "location": "Saas-Fee / Saas-Balen, Switzerland",
+  "propertyName": "Waldhotel Fletschhorn",
+  "headline": "Your Private Alpine Chalet in Saas-Fee",
+  "location": "Saas-Fee, Switzerland",
   "maxGuests": 67,
   "roomsSuites": 14,
   "rentalType": "exclusive_whole_property",
@@ -47,12 +47,16 @@
     "Professional kitchen possibilities",
     "Mountain transfers by arrangement"
   ],
-  "bookingUrl": "/contact-booking",
+  "bookingUrl": "/saas-fee-inquiry",
   "inquiryEmail": "reservations@example.com",
   "languages": [
     "en",
     "fr",
     "de",
     "ru"
-  ]
+  ],
+  "website": "www.fletschhorn.ch",
+  "instagram": "@fletschhornsaasfee",
+  "phone": "+41 27 957 2131",
+  "address": "Wildistrasse, 3906 Saas-Fee, Switzerland"
 }

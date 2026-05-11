@@ -14,10 +14,12 @@
   }
   function applyProperty(data){
     if(!data) return;
+    window.FH_CURRENT_PROPERTY = data;
     document.documentElement.style.setProperty('--fh-max-guests', JSON.stringify(data.maxGuests));
     (data.images||[]).forEach(img=>{ if(img.url) document.documentElement.style.setProperty(`--fh-${img.category}-image`, `url("${img.url}")`); });
     document.querySelectorAll('[data-fh-property-name]').forEach(el=>el.textContent=data.propertyName);
     document.querySelectorAll('[data-fh-inquiry-email]').forEach(el=>{el.textContent=data.inquiryEmail; el.href='mailto:'+data.inquiryEmail;});
+    if(window.FHPopups && typeof window.FHPopups.applyPopImages === 'function') window.FHPopups.applyPopImages(data);
   }
   window.FHApi = { getProperty, applyProperty };
 })();

@@ -39,8 +39,8 @@
   }
   function initForms(){
     document.addEventListener('submit',e=>{
-      if(e.target.matches('[data-fh-inquiry-form]')){ e.preventDefault(); location.hash='contact-booking'; }
-      if(e.target.matches('[data-fh-contact-form]')){ e.preventDefault(); const msg=(window.FH_TRANSLATIONS?.[localStorage.getItem('fh_language')||'en']?.['booking.confirmation']) || 'Thank you. Your inquiry is ready to connect.'; alert(msg); }
+      if(e.target.matches('[data-fh-inquiry-form]')){ e.preventDefault(); location.hash='inquiry'; }
+      if(e.target.matches('[data-fh-contact-form]')){ e.preventDefault(); const msg=(window.FH_TRANSLATIONS?.[localStorage.getItem('fh_language')||'en']?.['form.confirm']) || 'Thank you. Your inquiry is ready to connect.'; alert(msg); }
     });
   }
   function activateTabs(root, tabSelector, panelSelector, attr){
@@ -48,6 +48,7 @@
     function show(id){
       tabs.forEach((t,i)=>{ const active=(t.getAttribute(attr)===id)||(!id&&i===0); t.toggleAttribute('aria-selected',active); t.tabIndex=active?0:-1; });
       panels.forEach((p,i)=>p.classList.toggle('is-active',(p.getAttribute(attr.replace('-tab','-panel'))===id)||(!id&&i===0)));
+      if(window.FHPopups && typeof window.FHPopups.syncPopTab === 'function') window.FHPopups.syncPopTab(root, id);
     }
     tabs.forEach(t=>{ t.addEventListener('click',()=>show(t.getAttribute(attr))); t.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); const i=tabs.indexOf(t), n=e.key==='ArrowRight' ? (i+1)%tabs.length : (i-1+tabs.length)%tabs.length; tabs[n].focus(); tabs[n].click(); } }); });
     show(tabs[0]&&tabs[0].getAttribute(attr));
